@@ -1,0 +1,39 @@
+MudletQuickProfileCopy
+Python Script to quickly create/update multiple profiles in Mudlet
+==================================================================
+
+
+Script is designed to take the most recent Mudlet package of the source profile and copy it to a list of other profiles
+If a given profile doesn't exist, it will be created by copying the source profile to the new target profile.
+Additionally, it copies files specified in the main parent directory over. This feature is to supplment
+Vagonuth's AVATAR package and is completely optional (i.e. profile_files_to_copy can be commented out.)
+
+To copy all of the source profiles Triggers/Alias/Scripts etc., all we need to do is copy the most recent *.xml file
+from the source profile's "current" directory.
+
+=== SETUP ===
+
+The top of the script contains customizable variables you'll need to edit:
+
+# Define customizable variables
+username = 'WindowsUsername'  # Change this to the actual username
+profile_name = 'MainMudletProfileName'  # Change this to your main profile name (ie where we will copy from)
+profile_files_to_copy = ['AltList.lua', 'InventoryList.lua']  # List of additional files to copy (leave as default for Vagonuth package)
+
+# Define source directories and files
+base_directory = fr'C:\Users\{username}\.config\mudlet\profiles'    # by default, where Mudlet keeps profiles on Windows (edit if needed)
+source_directory = os.path.join(base_directory, profile_name, 'current')
+profile_file_path = 'profiles.txt'  # Path to the file containing profile names
+base_target_directory = base_directory  # Base directory for target profiles
+
+=== LIST OF PROFILES ===
+
+Create a file "profiles.txt" that contains a list of your Profile Names. Profile names should ideally be the character's name.
+The format of "profiles.txt" is one profile/character name per line. Line's that are blank or start with a # are ignored.
+Names are case sensitive. An example:
+
+# profiles.txt
+Alpha
+Bravo
+Charlie
+

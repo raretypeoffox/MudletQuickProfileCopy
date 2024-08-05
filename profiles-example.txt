@@ -1,0 +1,5 @@
+# Create the file profiles.txt using the format below
+# Include a list of all your profiles. One per line, case sensitive.
+Alpha
+Bravo
+Charlie
